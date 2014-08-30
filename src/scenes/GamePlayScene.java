@@ -6,7 +6,8 @@ import graphics.AnimatedSprite;
 import managers.font.FontManager;
 import managers.texture.TextureManager;
 import objects.Map;
-import objects.Unit;
+import objects.Player;
+import objects.units.Unit;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
@@ -19,40 +20,49 @@ import utils.PVector;
 public class GamePlayScene extends Scene{
 
     public Map map;
-    public Unit player;
+    public Unit unit;
+    
+    public Player player;
 
 	public GamePlayScene(GamePanel parent) {
     	this.parent = parent;
         
         map = new Map(TextureManager.mapa, 0, 0, 3840,2160, false);
-        player = new Unit(TextureManager.player, 0, 0, 50, 70, true, new AnimatedSprite(6, 6, 200));
+        unit = new Unit(TextureManager.unit, 0, 0, 50, 70, true, new AnimatedSprite(6, 6, 200));
 
         attachSprite(map);
-        attachSprite(player);
+        attachSprite(unit);
         
         position = new PVector(0, 0);
         zoom = 1f;
         
         width = parent.width;
         height = parent.height;
+        
+        int[]cards = {0,0,0,0,0,0};
+        player = new Player(300, 300, cards);
+        
+        attachSprite(player.camp);
+        attachSprite(player.ammunitionStorage);
+        attachSprite(player.refinery);
     }
 
 	@Override
 	public void keyboardInput() {
 		if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
-			player.position.y -= 10;
+			unit.position.y -= 10;
 		}
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
-			player.position.y += 10;
+			unit.position.y += 10;
 		}
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-			player.position.x -= 10;
+			unit.position.x -= 10;
 		}
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-			player.position.x += 10;
+			unit.position.x += 10;
 		}
 		
 		if (Keyboard.isKeyDown(Keyboard.KEY_UP)) {
@@ -127,11 +137,15 @@ public class GamePlayScene extends Scene{
 	
     @Override
     public void update(int difTime) {
+    	player.update(difTime);
+    	
     	super.update(difTime);
     }  
     
     @Override
     public void render() {
+    	player.render();
+    	
     	super.render();
     }
 

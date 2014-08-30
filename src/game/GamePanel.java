@@ -6,7 +6,6 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import scenes.DraftScene;
 import scenes.Scene;
 import scenes.SplashScene;
 import utils.RenderGL;

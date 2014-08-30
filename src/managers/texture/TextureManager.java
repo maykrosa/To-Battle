@@ -35,8 +35,12 @@ public class TextureManager {
     public static GTexture panelCardInformation;
     
     /* GamePlay Scene */
-    public static GTexture player;
+    public static GTexture unit;
+    
     public static GTexture mapa;
+    public static GTexture camp;
+    public static GTexture ammunitionStorage;
+    public static GTexture refinery;
     
     /**
      * Load all GTextures of game. 
@@ -83,11 +87,19 @@ public class TextureManager {
         load(panelCardInformation, "PNG", "/ui/panel_card_information.png");
         
         /* GamePlay Scene */
-        player = new GTexture();
-        mapa = new GTexture();
+        unit = new GTexture();
         
-        load(player, "PNG", "/SpriteRange.png");
-        load(mapa, "PNG", "/mapaBase.png");
+        mapa = new GTexture();
+        camp = new GTexture();
+        ammunitionStorage = new GTexture();
+        refinery = new GTexture();
+        
+        load(unit, "PNG", "/SpriteRange.png");
+        
+        load(mapa, "PNG", "/maps/mapaBase.png");
+        load(camp, "PNG", "/maps/camp.png");
+        load(ammunitionStorage, "PNG", "/maps/ammunition_storage.png");
+        load(refinery, "PNG", "/maps/refinery.png");
     }
     
     /**
