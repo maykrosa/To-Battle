@@ -1,17 +1,19 @@
 package objects.buildings;
 
-import utils.RenderGL;
 import game.StaticContent;
-import graphics.Sprite;
 import managers.texture.GTexture;
+import utils.RenderGL;
 
-public class Refinery extends Sprite{
+public class Refinery extends Building{
 	
 	public float fuel;
 	public float fuelRegen;
 	
-	public Refinery(GTexture texture, float x, float y, float width, float height, boolean sort){
-		super(texture, x, y, width, height, sort);
+	public Refinery(GTexture texture,  boolean sort){
+		super(texture,  sort);
+		
+		maxHp = StaticContent.REFINETY_HP;
+		hp = maxHp;
 		
 		fuel = StaticContent.FUEL_BASE;
 		fuelRegen = StaticContent.FUEL_REGEN_BASE;
@@ -20,6 +22,9 @@ public class Refinery extends Sprite{
 	@Override
 	public void update(int difTime) {
 		fuel += fuelRegen*difTime;
+		
+		if(hp < 0)
+			active = false;
 	}
 
 	@Override

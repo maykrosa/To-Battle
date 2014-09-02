@@ -2,16 +2,18 @@ package objects.buildings;
 
 import utils.RenderGL;
 import game.StaticContent;
-import graphics.Sprite;
 import managers.texture.GTexture;
 
-public class AmmunitionStorage extends Sprite{
+public class AmmunitionStorage extends Building{
 	
 	public float ammunition;
 	public float ammunitionRegen;
 	
-	public AmmunitionStorage(GTexture texture, float x, float y, float width, float height, boolean sort){
-		super(texture, x, y, width, height, sort);
+	public AmmunitionStorage(GTexture texture, boolean sort){
+		super(texture, sort);
+		
+		maxHp = StaticContent.AMMUNITION_STORAGE_HP;
+		hp = maxHp;
 		
 		ammunition = StaticContent.AMMUNITIION_BASE;
 		ammunitionRegen = StaticContent.AMMUNITIION_REGEN_BASE;
@@ -20,6 +22,9 @@ public class AmmunitionStorage extends Sprite{
 	@Override
 	public void update(int difTime) {
 		ammunition += ammunitionRegen*difTime;
+		
+		if(hp < 0)
+			active = false;
 	}
 
 	@Override

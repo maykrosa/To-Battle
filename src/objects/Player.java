@@ -5,22 +5,22 @@ import managers.texture.TextureManager;
 import objects.buildings.AmmunitionStorage;
 import objects.buildings.Camp;
 import objects.buildings.Refinery;
+import objects.buildings.ResearchCenter;
 
 public class Player extends Sprite{
-
-	public int[] cards;
 
 	public Camp camp;
 	public AmmunitionStorage ammunitionStorage;
 	public Refinery refinery;
+	public ResearchCenter researchCenter;
 	
-	public Player(float x, float y, int[] cards){
-		super(null, x, y, 0, 0, false);
-		this.cards = cards;
+	public Player( int[] cards){
+		super(null,0, 0, 0, 0, false);
 		
-		camp = new Camp(TextureManager.camp, x, y, TextureManager.camp.width, TextureManager.camp.height, true);
-		ammunitionStorage = new AmmunitionStorage(TextureManager.ammunitionStorage, x, y, TextureManager.ammunitionStorage.width, TextureManager.ammunitionStorage.height, true);
-		refinery = new Refinery(TextureManager.refinery, x, y, TextureManager.refinery.width, TextureManager.refinery.height, true);
+		camp = new Camp(TextureManager.camp, true, null);
+		ammunitionStorage = new AmmunitionStorage(TextureManager.ammunitionStorage, true);
+		refinery = new Refinery(TextureManager.refinery, true);
+		researchCenter = new ResearchCenter(TextureManager.researchCenter,  true);
 	}
 
 	@Override

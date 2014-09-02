@@ -31,16 +31,22 @@ public class TextureManager {
     
 	/* Draft Scene */
     public static GTexture draftScreen;
+    public static GTexture cardBase;
     public static GTexture[] cards;
-    public static GTexture panelCardInformation;
+    public static GTexture btnCollector;
+    public static GTexture btnMelee;
+    public static GTexture btnRange;
+    public static GTexture btnArea;
+    public static GTexture read;
     
     /* GamePlay Scene */
-    public static GTexture unit;
+    public static GTexture unitTest;
+    public static GTexture mapaBase;
     
-    public static GTexture mapa;
     public static GTexture camp;
     public static GTexture ammunitionStorage;
     public static GTexture refinery;
+    public static GTexture researchCenter;
     
     /**
      * Load all GTextures of game. 
@@ -74,32 +80,46 @@ public class TextureManager {
         load(selectStage, "PNG", "/select_screen.png"); 
         
     	/* Draft Scene */
+        read = new GTexture();
+        btnCollector = new GTexture();
+        btnMelee = new GTexture();
+        btnRange = new GTexture();
+        btnArea = new GTexture();
         draftScreen = new GTexture();
-        panelCardInformation = new GTexture();
         cards = new GTexture[24];
+        cardBase = new GTexture();
         for(int i=0; i<24; i++){
         	cards[i] = new GTexture();
         	
         	load(cards[i], "PNG", "/cards/card"+i+".png"); 
         }
 
+        load(btnCollector, "PNG", "/ui/btnCollector.png"); 
+        load(btnMelee, "PNG", "/ui/btnMelee.png"); 
+        load(btnRange, "PNG", "/ui/btnRange.png"); 
+        load(btnArea, "PNG", "/ui/btnArea.png"); 
         load(draftScreen, "PNG", "/draft_menu.png"); 
-        load(panelCardInformation, "PNG", "/ui/panel_card_information.png");
+        load(cardBase, "PNG", "/cards/cardBase.png"); 
+        load(read, "PNG", "/ui/read.png"); 
         
         /* GamePlay Scene */
-        unit = new GTexture();
+        unitTest = new GTexture();
+        mapaBase = new GTexture();
         
-        mapa = new GTexture();
-        camp = new GTexture();
-        ammunitionStorage = new GTexture();
+        camp =new GTexture();
+        ammunitionStorage= new GTexture();
         refinery = new GTexture();
+        researchCenter = new GTexture();
         
-        load(unit, "PNG", "/SpriteRange.png");
+        load(unitTest, "PNG", "/SpriteRange.png");
+        load(mapaBase, "PNG", "/maps/mapaBase.png");
         
-        load(mapa, "PNG", "/maps/mapaBase.png");
         load(camp, "PNG", "/maps/camp.png");
         load(ammunitionStorage, "PNG", "/maps/ammunition_storage.png");
         load(refinery, "PNG", "/maps/refinery.png");
+        load(researchCenter, "PNG", "/maps/research_center.png");
+        
+
     }
     
     /**

@@ -133,7 +133,9 @@ public abstract class Scene {
     	for (Iterator<Sprite> iterator = drawlist.iterator(); iterator.hasNext();) {
 			Sprite s = iterator.next();
 			s.render();
+			System.out.print(" "+s.sort);
     	}
+    	System.out.println();
     	
     	GL11.glPushMatrix();
     };

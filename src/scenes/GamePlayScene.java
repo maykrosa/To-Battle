@@ -1,8 +1,11 @@
 package scenes;
 
+import java.util.LinkedList;
+
 import game.GamePanel;
 import game.StaticContent;
 import graphics.AnimatedSprite;
+import managers.StageImport;
 import managers.font.FontManager;
 import managers.texture.TextureManager;
 import objects.Map;
@@ -22,14 +25,25 @@ public class GamePlayScene extends Scene{
     public Map map;
     public Unit unit;
     
-    public Player player;
+    public LinkedList<Player> players;
 
 	public GamePlayScene(GamePanel parent) {
     	this.parent = parent;
         
-        map = new Map(TextureManager.mapa, 0, 0, 3840,2160, false);
-        unit = new Unit(TextureManager.unit, 0, 0, 50, 70, true, new AnimatedSprite(6, 6, 200));
+    	StageImport.loadStageFile("maps/stage0.txt");
+    	
+        map = new Map(TextureManager.mapaBase, 0, -0, StageImport.width, StageImport.height, false, StageImport.name);
+        map.fields = StageImport.fields;
+        map.paths = StageImport.paths;
+        
+        unit = new Unit(TextureManager.unitTest, 0, 0, 50, 70, true, new AnimatedSprite(6, 6, 200));
 
+        players = new LinkedList<>();
+        int[]cards = {0,0,0,0,0,0};
+        for(int i=0; i<StageImport.getNumberArmy(); i++){
+	        createPlayer(cards, i);
+        }
+        
         attachSprite(map);
         attachSprite(unit);
         
@@ -38,13 +52,6 @@ public class GamePlayScene extends Scene{
         
         width = parent.width;
         height = parent.height;
-        
-        int[]cards = {0,0,0,0,0,0};
-        player = new Player(300, 300, cards);
-        
-        attachSprite(player.camp);
-        attachSprite(player.ammunitionStorage);
-        attachSprite(player.refinery);
     }
 
 	@Override
@@ -137,14 +144,16 @@ public class GamePlayScene extends Scene{
 	
     @Override
     public void update(int difTime) {
-    	player.update(difTime);
+    	for(Player p : players)
+    		p.update(difTime);
     	
     	super.update(difTime);
     }  
     
     @Override
     public void render() {
-    	player.render();
+    	for(Player p : players)
+    		p.render();
     	
     	super.render();
     }
@@ -163,4 +172,17 @@ public class GamePlayScene extends Scene{
         
         GL11.glPopMatrix();
 	} 
+	
+	private void createPlayer(int[]cards, int id){
+        Player p = new Player(cards);
+        
+        StageImport.fillPlayer(p, id);
+        
+        attachSprite(p.camp);
+        attachSprite(p.ammunitionStorage);
+        attachSprite(p.refinery);
+        attachSprite(p.researchCenter);
+        
+        players.add(p);
+	}
 }

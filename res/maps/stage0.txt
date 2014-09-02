@@ -1,0 +1,75 @@
+FileName :Stage 0
+width :3840
+height :2160
+
+#Army
+camp :1700,2000,200,90
+ammunition storage :1500,2000,100,50
+refinery :1600,2000,100,50
+research_center :1900,2000,100,50
+
+#Army
+camp :1500,100,500,150
+ammunition storage :1500,100,500,150
+refinery :1500,100,500,150
+research_center :1500,100,500,150
+
+#Field
+resource :0
+position :350,800,900,1300
+
+#Field
+resource :0
+position :350,800,900,1300
+
+#Field
+resource :0
+position :350,800,900,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300
+
+#Paths
+source :1
+destination :-2
+number waypoints :3
+waypoint :1800,1900
+waypoint :1800,1700
+waypoint :1800,1300

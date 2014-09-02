@@ -69,7 +69,7 @@ public class GamePanel {
         
 		/* Init, opening scene */
         currentScene = new SplashScene(this);
-//        currentScene = new DraftScene(this);
+//        currentScene = new GamePlayScene(this);
         
         /* Init, language to using */
         Language.loadLanguage(Language.PORTUGUES);

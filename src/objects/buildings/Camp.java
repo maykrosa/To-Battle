@@ -1,17 +1,21 @@
 package objects.buildings;
 
-import utils.RenderGL;
-import managers.texture.GTexture;
 import game.StaticContent;
-import graphics.Sprite;
+import managers.texture.GTexture;
+import utils.RenderGL;
 
-public class Camp extends Sprite{
+public class Camp extends Building{
 	
 	public float energy;
 	public float energyRegen;
 	
-	public Camp(GTexture texture, float x, float y, float width, float height, boolean sort){
-		super(texture, x, y, width, height, sort);
+	public int[] cards;
+	
+	public Camp(GTexture texture, boolean sort, int[] cards){
+		super(texture, sort);
+		
+		maxHp = StaticContent.CAMP_HP;
+		hp = maxHp;
 		
 		energy = StaticContent.ENERGY_BASE;
 		energyRegen = StaticContent.AMMUNITIION_REGEN_BASE;
@@ -20,6 +24,9 @@ public class Camp extends Sprite{
 	@Override
 	public void update(int difTime) {
 		energy += energyRegen*difTime;
+		
+		if(hp < 0)
+			active = false;
 	}
 
 	@Override

@@ -19,7 +19,10 @@ public class StaticContent {
 	/** Height of screen */
 	public static int heightScreen = 720;
 	
-	public static final int NUMBER_CARDS_TO_BATTLE = 6;
+	public static final float CAMP_HP = 100;
+	public static final float REFINETY_HP = 100;
+	public static final float AMMUNITION_STORAGE_HP = 100;
+	public static final float RESEARCH_CENTER_HP = 100;
 	
 	public static final float AMMUNITIION_BASE = 100;
 	public static final float AMMUNITIION_REGEN_BASE = 1.0f;
