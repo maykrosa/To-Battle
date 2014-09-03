@@ -32,7 +32,7 @@ public class GamePlayScene extends Scene{
         
     	StageImport.loadStageFile("maps/stage0.txt");
     	
-        map = new Map(TextureManager.mapaBase, 0, -0, StageImport.width, StageImport.height, false, StageImport.name);
+        map = new Map(TextureManager.mapaBase, 0, 0, StageImport.width, StageImport.height, false, StageImport.name);
         map.fields = StageImport.fields;
         map.paths = StageImport.paths;
         

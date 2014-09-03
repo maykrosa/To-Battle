@@ -116,7 +116,7 @@ public abstract class Scene {
 			public int compare(Sprite s1, Sprite s2) {
 				/* Sprites that not sort, like backgrounds or maps */
 				if(!s1.sort)
-					return 1;
+					return -1;
 				if(!s2.sort)
 					return 1;
 	

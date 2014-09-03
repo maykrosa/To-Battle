@@ -18,11 +18,11 @@ import utils.RenderGL;
 
 public class DraftScene extends Scene {
 
-	public RectangleGL start = null;
-	public RectangleGL collector = null;
-	public RectangleGL melee = null;
-	public RectangleGL range = null;
-	public RectangleGL area = null;
+	private RectangleGL start = null;
+	private RectangleGL collector = null;
+	private RectangleGL melee = null;
+	private RectangleGL range = null;
+	private RectangleGL area = null;
 
 	public int currenteHUD = 0;
 	public static final int HUDCOLLECTOR = 1;
@@ -32,7 +32,6 @@ public class DraftScene extends Scene {
 
 	private float offLeft;
 	private float offTop;
-
 	private float spacingX;
 
 	private float widthCard;
@@ -42,6 +41,7 @@ public class DraftScene extends Scene {
 	private boolean isMelee = false;
 	private boolean isRange = false;
 	private boolean isArea = false;
+
 	private RectangleGL[] selectedCards;
 	private RectangleGL[] cards;
 	private ArrayList<Integer> indicePersonagens;
@@ -54,11 +54,10 @@ public class DraftScene extends Scene {
 
 		width = parent.width;
 		height = parent.height;
+
 		offLeft = width * 0.07f;
 		offTop = height * 0.15f;
-
 		spacingX = width * 0.12f;
-
 		widthCard = width * 0.12f;
 		heightCard = height * 0.28f;
 
@@ -68,6 +67,7 @@ public class DraftScene extends Scene {
 
 		start = new RectangleGL(TextureManager.read, width * 0.78f,
 				height * 0.80f, width * 0.92f, height * 0.86f, 1);
+
 		criaCardSelecionados();
 
 		currenteHUD = HUDCOLLECTOR;
@@ -105,6 +105,8 @@ public class DraftScene extends Scene {
 				height * 0.4f + height * 0.23f, 1);
 	}
 
+	int cont = 0;
+
 	@Override
 	public void mouseInput() {
 		mouseX = Mouse.getX();
@@ -121,45 +123,77 @@ public class DraftScene extends Scene {
 					for (int i = 0; i < 3; i++) {
 						if (isCollector) {
 							if (cards[i].contains(mouseX, mouseY)) {
-								selectedCards[0].setTexture(cards[i].getTexture());
-								indicePersonagens.clear();
-								indicePersonagens.add(0, i);
+								cont++;
+								if (cont > 1) {
+									indicePersonagens.remove(indicePersonagens
+											.size() - 1);
+								}
+								selectedCards[0].setTexture(cards[i]
+										.getTexture());
+								indicePersonagens.add(i);
+								System.out.println("cards" + i);
+								System.out.println("indice"
+										+ indicePersonagens.size());
+								System.out.println("click " + cont);
 
 							}
 						}
 						if (isMelee) {
 							if (cards[i].contains(mouseX, mouseY)) {
-								if (indicePersonagens.size() >= 2) {
-									indicePersonagens.remove(indicePersonagens.size() - 1);
+								cont++;
+								if (cont > 1) {
+									indicePersonagens.remove(indicePersonagens
+											.size() - 1);
 								}
 								selectedCards[1].setTexture(cards[i]
 										.getTexture());
-								indicePersonagens.add(1, i);
+								indicePersonagens.add(i);
+
+								System.out.println("cards" + i);
+								System.out.println("indice"
+										+ indicePersonagens.size());
+								System.out.println("click " + cont);
+
 							}
 						}
 						if (isRange) {
-
 							if (cards[i].contains(mouseX, mouseY)) {
-								if (indicePersonagens.size() >= 3){
-									indicePersonagens.remove(indicePersonagens.size() - 1);
+								cont++;
+								if (cont > 1) {
+									indicePersonagens.remove(indicePersonagens
+											.size() - 1);
 								}
-								selectedCards[2].setTexture(cards[i].getTexture());
-								indicePersonagens.add(2, i);
+								selectedCards[2].setTexture(cards[i]
+										.getTexture());
+								indicePersonagens.add(i);
+								System.out.println("cards" + i);
+								System.out.println("indice"
+										+ indicePersonagens.size());
 							}
 						}
 						if (isArea) {
 							if (cards[i].contains(mouseX, mouseY)) {
-								if (indicePersonagens.size() >= 4){
-									indicePersonagens.remove(indicePersonagens.size() - 1);
+								cont++;
+								if (cont > 1) {
+									indicePersonagens.remove(indicePersonagens
+											.size() - 1);
 								}
-								selectedCards[3].setTexture(cards[i].getTexture());
-								indicePersonagens.add(3, i);
+								selectedCards[3].setTexture(cards[i]
+										.getTexture());
+								indicePersonagens.add(i);
+								System.out.println("cards" + i);
+								System.out.println("indice"
+										+ indicePersonagens.size());
 							}
 						}
 					}
 
 					if (start.contains(mouseX, mouseY)) {
 						if (indicePersonagens.size() == 4) {
+							for (int i = 0; i < indicePersonagens.size(); i++) {
+								System.out.println("indice pesonagens :"
+										+ indicePersonagens.get(i));
+							}
 							parent.currentScene = new GamePlayScene(parent);
 						}
 
@@ -170,6 +204,7 @@ public class DraftScene extends Scene {
 						isMelee = false;
 						isRange = false;
 						isArea = false;
+						cont = 0;
 					}
 					if (melee.contains(mouseX, mouseY)) {
 						currenteHUD = HUDMELEE;
@@ -177,6 +212,7 @@ public class DraftScene extends Scene {
 						isMelee = true;
 						isRange = false;
 						isArea = false;
+						cont = 0;
 					}
 					if (range.contains(mouseX, mouseY)) {
 						currenteHUD = HUDRANGE;
@@ -184,6 +220,7 @@ public class DraftScene extends Scene {
 						isMelee = false;
 						isRange = true;
 						isArea = false;
+						cont = 0;
 					}
 					if (area.contains(mouseX, mouseY)) {
 						currenteHUD = HUDAREA;
@@ -191,6 +228,7 @@ public class DraftScene extends Scene {
 						isMelee = false;
 						isRange = false;
 						isArea = true;
+						cont = 0;
 					}
 
 				}
@@ -224,7 +262,6 @@ public class DraftScene extends Scene {
 		super.render();
 	}
 
-	// @SuppressWarnings("deprecation")
 	@Override
 	public void renderInterface() {
 		GL11.glPushMatrix();
