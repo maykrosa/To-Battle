@@ -30,6 +30,9 @@ public class Player extends Sprite{
 
 	@Override
 	public void render() {
-		
+		camp.renderInterface();
+		ammunitionStorage.renderInterface();
+		refinery.renderInterface();
+		researchCenter.renderInterface();
 	}
 }

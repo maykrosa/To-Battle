@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import objects.Field;
 import objects.Path;
 import objects.Player;
-
 import utils.PVector;
 
 public class StageImport {
@@ -73,20 +72,24 @@ public class StageImport {
 		player.camp.position = new PVector(a.campPostion.x, a.campPostion.y);
 		player.camp.width = a.campPostion.width;
 		player.camp.height = a.campPostion.height;
+		player.camp.collisionBox = new org.lwjgl.util.Rectangle(a.campPostion.x, a.campPostion.y, a.campPostion.width, a.campPostion.height);
 		
 		player.ammunitionStorage.position = new PVector(a.ammunitionPosition.x, a.ammunitionPosition.y);
 		player.ammunitionStorage.width = a.ammunitionPosition.width;
 		player.ammunitionStorage.height = a.ammunitionPosition.height;
+		player.ammunitionStorage.collisionBox = new org.lwjgl.util.Rectangle(a.ammunitionPosition.x, a.ammunitionPosition.y, a.ammunitionPosition.width, a.ammunitionPosition.height);
 		
 		player.refinery.position = new PVector(a.refineryPosition.x, a.refineryPosition.y);
 		player.refinery.width = a.refineryPosition.width;
 		player.refinery.height = a.refineryPosition.height;
+		player.refinery.collisionBox = new org.lwjgl.util.Rectangle(a.refineryPosition.x, a.refineryPosition.y, a.refineryPosition.width, a.refineryPosition.height);
 		
 		player.researchCenter.position = new PVector(a.reseachPosition.x, a.reseachPosition.y);
 		player.researchCenter.width = a.reseachPosition.width;
 		player.researchCenter.height = a.reseachPosition.height;
+		player.researchCenter.collisionBox = new org.lwjgl.util.Rectangle(a.reseachPosition.x, a.reseachPosition.y, a.reseachPosition.width, a.reseachPosition.height);
 	}
-	
+
 	public static int getNumberArmy(){
 		return armys.size();
 	}
@@ -175,13 +178,14 @@ public class StageImport {
         
         line = bufferedReader.readLine();
         subLine = line.split(":");
-        p.numberWaypoints = Integer.parseInt(subLine[1]);
+        p.destination = Integer.parseInt(subLine[1]);
         
         line = bufferedReader.readLine();
         subLine = line.split(":");
-        p.source = Integer.parseInt(subLine[1]);
+        p.numberWaypoints = Integer.parseInt(subLine[1]);
        
         p.waypoints = new LinkedList<>();
+      
         for(int i=0; i<p.numberWaypoints; i++){
 	        line = bufferedReader.readLine();
 	        subLine = line.split(":");
@@ -190,6 +194,7 @@ public class StageImport {
         }
         paths.add(p);
 	}
+
 
 	static class Army{
 		Rectangle campPostion;

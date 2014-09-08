@@ -3,73 +3,162 @@ width :3840
 height :2160
 
 #Army
-camp :1700,2000,200,90
-ammunition storage :1500,2000,100,50
-refinery :1600,2000,100,50
-research_center :1900,2000,100,50
+camp :1000,1700,280,300
+ammunition storage :700,1850,180,180
+refinery :900,1650,125,250
+research_center :1300,1850,180,180
 
 #Army
-camp :1500,100,500,150
-ammunition storage :1500,100,500,150
-refinery :1500,100,500,150
-research_center :1500,100,500,150
+camp :2600,150,280,300
+ammunition storage :2400,300,180,180
+refinery :2500,100,125,250
+research_center :2900,300,180,180
 
 #Field
 resource :0
-position :350,800,900,1300
+position :400,50,400,400
 
 #Field
 resource :0
-position :350,800,900,1300
+position :1200,150,400,400
 
 #Field
 resource :0
-position :350,800,900,1300
+position :1700,900,400,400
+
+#Field
+resource :0
+position :2250,1600,400,400
+
+#Field
+resource :0
+position :3000,1700,400,400
+
+#Paths
+source :-2
+destination :2
+number waypoints :3
+waypoint :2300,300
+waypoint :1900,300
+waypoint :1400,300
+
+#Paths
+source :-2
+destination :3
+number waypoints :4
+waypoint :2300,300
+waypoint :1900,300
+waypoint :1750,700
+waypoint :1800,1050
+
+#Paths
+source :-2
+destination :5
+number waypoints :4
+waypoint :3150,450
+waypoint :3700,700
+waypoint :3700,1500
+waypoint :3150,1800
+
+#Paths
+source :-2
+destination :5
+number waypoints :4
+waypoint :3150,450
+waypoint :3700,700
+waypoint :3700,1500
+waypoint :3150,1800
+
+#Paths
+source :-1
+destination :1
+number waypoints :4
+waypoint :700,1800
+waypoint :100,1500
+waypoint :100,700
+waypoint :550,300
+
+#Paths
+source :-1
+destination :3
+number waypoints :4
+waypoint :1500,1900
+waypoint :1950,1800
+waypoint :2000,1500
+waypoint :1900,1250
+
+#Paths
+source :-1
+destination :4
+number waypoints :3
+waypoint :1500,1850
+waypoint :1900,1850
+waypoint :2200,1850
 
 #Paths
 source :1
-destination :-2
-number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+destination :3
+number waypoints :4
+waypoint :300,200
+waypoint :100,1100
+waypoint :800,1100
+waypoint :1400,1100
 
 #Paths
-source :1
-destination :-2
-number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+source :3
+destination :1
+number waypoints :4
+waypoint :1400,1100
+waypoint :800,1100
+waypoint :100,1100
+waypoint :300,200
 
 #Paths
-source :1
-destination :-2
+source :2
+destination :3
 number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+waypoint :1600,300
+waypoint :1800,600
+waypoint :1800,800
 
 #Paths
-source :1
-destination :-2
+source :3
+destination :2
 number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+waypoint :1800,800
+waypoint :1800,600
+waypoint :1600,300
 
 #Paths
-source :1
-destination :-2
+source :3
+destination :4
 number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+waypoint :2000,1200
+waypoint :2000,1500
+waypoint :2200,1800
 
 #Paths
-source :1
-destination :-2
+source :4
+destination :3
 number waypoints :3
-waypoint :1800,1900
-waypoint :1800,1700
-waypoint :1800,1300
+waypoint :2200,1800
+waypoint :2000,1500
+waypoint :2000,1200
+
+#Paths
+source :3
+destination :5
+number waypoints :4
+waypoint :2100,1100
+waypoint :2800,1100
+waypoint :3700,1100
+waypoint :3400,1900
+
+#Paths
+source :5
+destination :3
+number waypoints :4
+waypoint :3400,1900
+waypoint :3700,1100
+waypoint :2800,1100
+waypoint :2100,1100

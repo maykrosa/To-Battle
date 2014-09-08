@@ -1,60 +1,13 @@
 # Testing language file 
 
 # Define amount of text file(last id + 1)
-qtd = 53
-
-# Define Text
-# Necessary use blank space before and after equal sign( = )
 0 = START GAME
 1 = DRAFT
 2 = READY
-3 = Atack unit
-4 = Resistance unit
-5 = Utility unit
-6 = Commander
-7 = Scout
-8 = Barricade turtle
-9 = Light artillery
-10 = Heavy artillery
-11 = Big Head
-12 = Light infantry
-13 = Roulette
-14 = Doctor
-15 = Devastating
-16 = Catch-up
-17 = Rock
-18 = Courier
-19 = Trap
-20 = -
-21 = -
-22 = -
-23 = -
-24 = -
-25 = -
-26 = -
-27 = -
-28 = -
-29 = -
-30 = -
-31 = -
-32 = -
-33 = -
-34 = -
-35 = -
-36 = Ghost
-37 = Carrier
-38 = Battle cry
-39 = Midas
-40 = Sacrifice
-41 = -
-42 = -
-43 = -
-44 = -
-45 = -
-46 = -
-47 = CONVENE 
-48 = DAMAGE 
-49 = SPEED 
-50 = RESISTENCE 
-51 = COAST 
-52 = BUILD TIME 
+3 = Ammunition
+4 = Regeneration ammunition
+5 = Fuel
+6 = Regeneration fuel
+7 = Power
+8 = Regeneration power
+9 = HP

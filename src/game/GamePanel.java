@@ -6,8 +6,8 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+import scenes.GamePlayScene;
 import scenes.Scene;
-import scenes.SplashScene;
 import utils.RenderGL;
 
 /**
@@ -68,8 +68,8 @@ public class GamePanel {
         RenderGL.initOpenGL(width, height);
         
 		/* Init, opening scene */
-        currentScene = new SplashScene(this);
-//        currentScene = new GamePlayScene(this);
+//        currentScene = new SplashScene(this);
+        currentScene = new GamePlayScene(this);
         
         /* Init, language to using */
         Language.loadLanguage(Language.PORTUGUES);

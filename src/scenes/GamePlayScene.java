@@ -113,6 +113,13 @@ public class GamePlayScene extends Scene{
 		mouseX = Mouse.getX();
 		mouseY = (Mouse.getY()-parent.height)*-1;
 		
+		//FIXME
+		Player p = players.get(0);
+		p.camp.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+		p.ammunitionStorage.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+		p.refinery.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+		p.researchCenter.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+		
 		while (Mouse.next()) {
 			/* Mouse pressed */
 			if (Mouse.getEventButtonState()) {
@@ -120,7 +127,14 @@ public class GamePlayScene extends Scene{
 	
 				}
 				if (Mouse.getEventButton() == StaticContent.LEFT_BUTTON) {
-					System.out.println("Posição de mundo: "+toWorldCoordinateX(mouseX)+" "+toWorldCoordinateY(mouseY));
+//					System.out.println("Posição de mundo: "+toWorldCoordinateX(mouseX)+" "+toWorldCoordinateY(mouseY));
+					
+					//FIXME
+					p = players.get(0);
+					p.camp.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+					p.ammunitionStorage.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+					p.refinery.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
+					p.researchCenter.onClick(toWorldCoordinateX(mouseX), toWorldCoordinateY(mouseY));
 
 				}
 
@@ -152,10 +166,11 @@ public class GamePlayScene extends Scene{
     
     @Override
     public void render() {
-    	for(Player p : players)
-    		p.render();
-    	
     	super.render();
+    	
+    	for(Player p : players){
+    		p.render();
+    	}
     }
 
 	@SuppressWarnings("deprecation")
@@ -169,7 +184,6 @@ public class GamePlayScene extends Scene{
 	        
 	        /* Disable last color, default color white*/
 	        GL11.glColor4f(1, 1, 1, 1);
-        
         GL11.glPopMatrix();
 	} 
 	

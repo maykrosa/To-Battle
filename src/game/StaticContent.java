@@ -25,11 +25,11 @@ public class StaticContent {
 	public static final float RESEARCH_CENTER_HP = 100;
 	
 	public static final float AMMUNITIION_BASE = 100;
-	public static final float AMMUNITIION_REGEN_BASE = 1.0f;
+	public static final float AMMUNITIION_REGEN_BASE = 1f;
 	
 	public static final float ENERGY_BASE = 100;
-	public static final float ENERGY_REGEN_BASE = 1.0f;
+	public static final float ENERGY_REGEN_BASE = 1f;
 	
 	public static final float FUEL_BASE = 100;
-	public static final float FUEL_REGEN_BASE = 1.0f;
+	public static final float FUEL_REGEN_BASE = 1f;
 }

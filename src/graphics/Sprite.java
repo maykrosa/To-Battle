@@ -1,5 +1,7 @@
 package graphics;
 
+import org.lwjgl.util.Rectangle;
+
 import utils.PVector;
 import managers.texture.GTexture;
 
@@ -12,6 +14,8 @@ public abstract class Sprite {
     public PVector position;
     public float width;
     public float height;
+    
+    public Rectangle collisionBox;
     
     /* */
     public boolean active;
@@ -29,6 +33,8 @@ public abstract class Sprite {
         this.width = width;
         this.height = height;
         
+        this.collisionBox = new Rectangle((int)x, (int)y, (int)width, (int)height);
+        
         this.active = true;
         this.sort = sort;
         
@@ -42,6 +48,8 @@ public abstract class Sprite {
         this.position = new PVector(x, y);
         this.width = width;
         this.height = height;
+        
+        this.collisionBox = new Rectangle((int)x, (int)y, (int)width, (int)height);
         
         this.active = true;
         this.sort = sort;
